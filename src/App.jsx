@@ -1,12 +1,11 @@
-import './App.scss'
+import DashboardLayout from './components/layout/DashboardLayout'
+import Dashboard from './pages/Dashboard'
 function App() {
 
   return (
-    <>
-      <h1 className="App text-3xl font-bold underline">
-        Hello world!
-      </h1>    
-    </>
+    <DashboardLayout>
+      <Dashboard />
+    </DashboardLayout>
   )
 }
 
