@@ -2,25 +2,22 @@ import React, { useState } from 'react'
 import Sidebar from './Sidebar'
 import Navbar from './Navbar'
 
-const DashboardLayout = ({ children }) => {
+const DashboardLayout = ({ children, currentPage, setCurrentPage }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: 'var(--bg-secondary)' }}>
-      {sidebarOpen && (
-        <div 
-          className="fixed inset-0 z-40 lg:hidden modal-overlay"
-          onClick={() => setSidebarOpen(false)}
-        />
-      )}
+    <div className="app-container min-h-screen">
+      <Sidebar 
+        isOpen={sidebarOpen} 
+        onClose={() => setSidebarOpen(false)} 
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+      />
       
-
-      <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
-      
-      <div style={{ marginLeft: 'var(--sidebar-width)' }} className="lg:ml-[var(--sidebar-width)] ml-0">
+      <div className="lg:ml-64">
         <Navbar onMenuClick={() => setSidebarOpen(true)} />
         
-        <main className="p-4" style={{ paddingTop: 'calc(var(--navbar-height) + 1rem)' }}>
+        <main className="p-4 pt-20">
           <div className="mx-auto max-w-7xl">
             {children}
           </div>

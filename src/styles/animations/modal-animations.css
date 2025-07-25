@@ -1,0 +1,108 @@
+
+/* Animation Variables */
+:root {
+  --modal-duration: 0.4s;
+  --modal-easing: cubic-bezier(0.4, 0, 0.2, 1);
+  --modal-bounce-easing: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Modal Container Animations */
+.modal-enter {
+  opacity: 0;
+  transform: scale(0.3);
+  transform-origin: center;
+  animation: modalExpand var(--modal-duration) var(--modal-bounce-easing) forwards;
+}
+
+.modal-exit {
+  opacity: 1;
+  transform: scale(1);
+  transform-origin: center;
+  animation: modalShrink calc(var(--modal-duration) * 0.8) var(--modal-bounce-easing) forwards;
+}
+
+/* Backdrop Animations */
+.backdrop-enter {
+  opacity: 0;
+  backdrop-filter: blur(0px);
+  animation: backdropFadeIn var(--modal-duration) var(--modal-easing) forwards;
+}
+
+.backdrop-exit {
+  opacity: 1;
+  backdrop-filter: blur(8px);
+  animation: backdropFadeOut calc(var(--modal-duration) * 0.8) var(--modal-easing) forwards;
+}
+
+@keyframes modalExpand {
+  0% {
+    opacity: 0;
+    transform: scale(0.1);
+  }
+  60% {
+    opacity: 0.9;
+    transform: scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+@keyframes modalShrink {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+}
+
+@keyframes backdropFadeIn {
+  from {
+    opacity: 0;
+    backdrop-filter: blur(0px);
+  }
+  to {
+    opacity: 1;
+    backdrop-filter: blur(8px);
+  }
+}
+
+@keyframes backdropFadeOut {
+  from {
+    opacity: 1;
+    backdrop-filter: blur(8px);
+  }
+  to {
+    opacity: 0;
+    backdrop-filter: blur(0px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .modal-enter,
+  .modal-exit,
+  .backdrop-enter,
+  .backdrop-exit {
+    animation: none !important;
+  }
+  
+  .modal-enter {
+    opacity: 1;
+    transform: scale(1);
+  }
+  
+  .backdrop-enter {
+    opacity: 1;
+    backdrop-filter: blur(8px);
+  }
+}
+
+[data-theme="dark"] .backdrop-enter,
+[data-theme="dark"] .backdrop-exit {
+  backdrop-filter: blur(8px);
+}

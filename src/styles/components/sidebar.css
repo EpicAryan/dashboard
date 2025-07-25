@@ -1,0 +1,93 @@
+/* Sidebar Component Styles */
+.sidebar {
+  background-color: var(--sidebar-bg);
+  border-color: var(--sidebar-border);
+}
+
+.sidebar__header {
+  border-color: var(--border-color);
+}
+
+.sidebar__brand {
+  color: var(--text-primary);
+}
+
+.sidebar__section-title {
+  color: var(--text-muted);
+}
+
+.sidebar__section-border {
+  border-color: var(--border-color);
+}
+
+.sidebar__nav-link {
+  color: var(--nav-text);
+}
+
+.sidebar__nav-link:hover {
+  background-color: var(--nav-item-hover);
+  color: var(--text-primary);
+}
+
+.sidebar__nav-link--active {
+  background-color: var(--nav-item-active);
+  color: var(--nav-text-active);
+}
+
+.sidebar__nav-link:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.sidebar__footer {
+  border-color: var(--border-color);
+}
+
+.sidebar__team-card {
+  background-color: var(--bg-secondary);
+}
+
+.sidebar__team-name {
+  color: var(--text-primary);
+}
+
+.sidebar__team-role {
+  color: var(--text-muted);
+}
+
+.sidebar__upgrade-btn {
+  border-color: var(--border-color);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.sidebar__upgrade-btn:hover {
+  background-color: var(--nav-item-hover);
+}
+
+.sidebar__upgrade-btn:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.sidebar__copyright {
+  color: var(--text-muted);
+}
+
+.sidebar__backdrop {
+  opacity: 0.5;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.sidebar__container {
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.sidebar__team-toggle {
+  color: var(--text-muted);
+}
+
+.sidebar__team-toggle:hover {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+}

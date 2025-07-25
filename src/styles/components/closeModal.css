@@ -1,0 +1,42 @@
+/*CSS-Only Close Button Styles */
+.css-close-btn {
+  color: var(--text-secondary);
+  background-color: transparent;
+}
+
+.css-close-btn:hover {
+  color: var(--text-primary);
+  background-color: var(--nav-item-hover);
+  transform: scale(1.05);
+}
+
+.css-close-btn:active {
+  transform: scale(0.95);
+}
+
+.css-close-btn:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.css-close-btn-ghost {
+  color: var(--text-secondary);
+  background-color: var(--bg-secondary);
+}
+
+.css-close-btn-ghost:hover {
+  color: var(--text-primary);
+  background-color: var(--nav-item-hover);
+}
+
+.css-close-btn-outline {
+  color: var(--text-secondary);
+  background-color: transparent;
+  border: 1px solid var(--border-color);
+}
+
+.css-close-btn-outline:hover {
+  color: var(--text-primary);
+  background-color: var(--nav-item-hover);
+  border-color: var(--primary);
+}
