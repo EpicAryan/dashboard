@@ -1,3 +1,5 @@
+//src/components/dashboard/SummaryCard.jsx
+
 import { TrendingUp, TrendingDown, Minus } from 'lucide-react'
 
 const SummaryCard = ({

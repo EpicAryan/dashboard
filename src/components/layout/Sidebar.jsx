@@ -1,3 +1,5 @@
+//src/components/layout/Sidebar.jsx
+
 import { useEffect, useRef } from 'react'
 import {
   ChevronsUpDown,
@@ -6,7 +8,7 @@ import {
 } from 'lucide-react'
 import {
   sidebarSections
-} from '../../data/Sidebar-navigation.js'
+} from '../../data/sidebarNavigation.js'
 import ThemeToggle from '../ui/ThemeToggle'
 
 const Sidebar = ({ isOpen = true, onClose, currentPage, setCurrentPage }) => {

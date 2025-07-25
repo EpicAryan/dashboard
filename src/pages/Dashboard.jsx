@@ -1,7 +1,10 @@
-import React from 'react'
+//src/pages/Dashboard.jsx
+
 import { DollarSign, Users, ShoppingCart, TrendingUp } from 'lucide-react'
 import DashboardHeader from '../components/dashboard/DashboardHeader'
 import SummaryCard from '../components/dashboard/SummaryCard'
+import DataTable from '../components/dashboard/DataTable'
+import { sampleTransactions } from '../data/sampleTransactions'
 
 const Dashboard = () => {
 
@@ -72,15 +75,12 @@ const Dashboard = () => {
       </div>
       
       {/* Table area placeholder */}
-      <div className="dashboard-section">
-        <h2 className="dashboard-section__title">Recent Transactions</h2>
-        <div className="dashboard-section__content">
-          <div className="dashboard-placeholder">
-            <ShoppingCart className="h-12 w-12 text-gray-400" />
-            <p className="text-gray-500">Data table will go here</p>
-          </div>
-        </div>
-      </div>
+       <DataTable 
+        title="Recent Transactions"
+        data={sampleTransactions}
+        showPagination={true}
+        itemsPerPage={10}
+      />
     </div>
   )
 }

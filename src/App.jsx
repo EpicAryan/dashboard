@@ -1,7 +1,9 @@
+//App.jsx
+
 import React, { useState } from 'react'
 import DashboardLayout from './components/layout/DashboardLayout'
 import Dashboard from './pages/Dashboard'
-import Transactions from './pages/Transactions'
+// import Transactions from './pages/Transactions'
 // import Customers from './pages/Customers'
 // import Message from './pages/Message'
 // import Product from './pages/Product'

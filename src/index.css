@@ -3,5 +3,7 @@
 @import './styles/components/navbar.css';
 @import './styles/components/sidebar.css';
 @import './styles/components/close-modal.css';
+@import './styles/components/summary-cards.css';
+@import './styles/components/data-table.css';
+
 @import './styles/animations/modal-animations.css';
-@import './styles/components/summary-cards.css'

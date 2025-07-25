@@ -1,3 +1,5 @@
+//src/components/layout/Navbar.jsx
+
 import { useState, useEffect } from 'react'
 import { Menu, Search, Bell, Command } from 'lucide-react'
 import SearchDialog from '../ui/SearchDialog'

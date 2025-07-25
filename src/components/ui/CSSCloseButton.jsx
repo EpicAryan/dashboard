@@ -1,3 +1,5 @@
+//src/components/ui/CSSCloseButton.jsx
+
 import { X } from 'lucide-react'
 
 const CSSCloseButton = ({ 

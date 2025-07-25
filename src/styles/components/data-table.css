@@ -1,0 +1,208 @@
+/* /src/styles/components/data-table.css */
+
+/* Data Table Styles */
+.data-table-container {
+  background-color: var(--bg-primary);
+  border-color: var(--border-color);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+.data-table__header {
+  background-color: var(--bg-primary);
+  border-color: var(--border-color);
+}
+
+.data-table__title {
+  color: var(--text-primary);
+}
+
+.data-table__count {
+  background-color: var(--bg-tertiary);
+  color: var(--text-secondary);
+}
+
+.data-table__filter-btn,
+.data-table__sort-btn {
+  background-color: var(--bg-primary);
+  border-color: var(--border-color);
+  color: var(--text-secondary);
+}
+
+.data-table__filter-btn:hover,
+.data-table__sort-btn:hover {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.1);
+}
+
+/* Table Styling */
+.data-table__head {
+  background-color: var(--bg-secondary);
+  border-color: var(--border-color);
+}
+
+.data-table__header-cell {
+  color: var(--text-secondary);
+  background-color: var(--bg-secondary);
+}
+
+/* Row Colors*/
+.data-table__row--even {
+  background-color: var(--bg-primary);
+}
+
+.data-table__row--odd {
+  background-color: var(--bg-secondary);
+}
+
+.data-table__row:hover {
+  background-color: var(--nav-item-hover) !important;
+}
+
+.data-table__row {
+  border-color: var(--border-color);
+}
+
+.data-table__cell {
+  color: var(--text-primary);
+}
+
+.data-table__avatar {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+.data-table__business-name {
+  color: var(--text-primary);
+}
+
+.data-table__payment-type {
+  color: var(--text-muted);
+}
+
+.data-table__date {
+  color: var(--text-secondary);
+}
+
+.data-table__amount--positive {
+  color: var(--success);
+}
+
+.data-table__amount--negative {
+  color: var(--danger);
+}
+
+/* Status Badges */
+.data-table__status {
+  font-weight: 500;
+}
+
+.data-table__status--success {
+  background-color: rgba(16, 185, 129, 0.1);
+  color: var(--success);
+}
+
+.data-table__status--pending {
+  background-color: rgba(245, 158, 11, 0.1);
+  color: var(--warning);
+}
+
+.data-table__status--failed {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: var(--danger);
+}
+
+.data-table__status--neutral {
+  background-color: var(--bg-tertiary);
+  color: var(--text-muted);
+}
+
+/* Action Button */
+.data-table__action-btn {
+  color: var(--text-muted);
+  background-color: transparent;
+}
+
+.data-table__action-btn:hover {
+  background-color: var(--bg-secondary);
+  color: var(--text-secondary);
+}
+
+/* Pagination */
+.data-table__pagination {
+  background-color: var(--bg-secondary);
+  border-color: var(--border-color);
+}
+
+.data-table__pagination-info {
+  color: var(--text-secondary);
+}
+
+.data-table__pagination-btn {
+  background-color: var(--bg-primary);
+  border-color: var(--border-color);
+  color: var(--text-secondary);
+}
+
+.data-table__pagination-btn:hover:not(:disabled) {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.1);
+}
+
+.data-table__scroll-container {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-color) transparent;
+}
+
+.data-table__scroll-container::-webkit-scrollbar {
+  height: 6px;
+}
+
+.data-table__scroll-container::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+  border-radius: 3px;
+}
+
+.data-table__scroll-container::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 3px;
+}
+
+.data-table__scroll-container::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+[data-theme="dark"] .data-table-container {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="dark"] .data-table__filter-btn:hover,
+[data-theme="dark"] .data-table__sort-btn:hover,
+[data-theme="dark"] .data-table__pagination-btn:hover:not(:disabled) {
+  box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 640px) {
+  .data-table__header {
+    padding: 1rem;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+  }
+  
+  .data-table__pagination {
+    padding: 1rem;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+  
+  .data-table__cell {
+    padding: 0.75rem 1rem;
+  }
+  
+  .data-table__header-cell {
+    padding: 0.75rem 1rem;
+  }
+}

@@ -1,4 +1,4 @@
-// sidebar-sections.js
+//src/data/sidebarNavigation.js
 
 import {
   LayoutDashboard,

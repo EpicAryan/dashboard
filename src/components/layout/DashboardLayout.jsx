@@ -1,4 +1,6 @@
-import React, { useState } from 'react'
+//src/components/layout/DashboardLayout.jsx
+
+import { useState } from 'react'
 import Sidebar from './Sidebar'
 import Navbar from './Navbar'
 

@@ -1,3 +1,5 @@
+//src/hooks/useCSSOnlyModal.js
+
 import { useEffect, useCallback } from 'react'
 
 export const useCSSOnlyModal = (modalId, isOpen, onClose) => {

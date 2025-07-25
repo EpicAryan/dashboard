@@ -1,3 +1,5 @@
+//src/components/ui/SearchDialog.jsx
+
 import { useEffect, useRef, useState } from 'react'
 import { Search, Clock, TrendingUp, ArrowRight, Command } from 'lucide-react'
 import { useCSSOnlyModal } from '../../hooks/useCSSOnlyModal'
