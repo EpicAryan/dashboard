@@ -37,8 +37,8 @@ const Navbar = ({ onMenuClick }) => {
   return (
     <>
       <header className="navbar fixed top-0 right-0 left-0 lg:left-64 z-30 border-b backdrop-blur-md">
-        <div className='container mx-auto'>
-          <div className="bg-transparent px-4 sm:px-6 h-16 flex items-center justify-between">
+        <div className='container mx-auto px-2 md:px-4 lg:px-6'>
+          <div className="bg-transparent h-16 flex items-center justify-between">
             {/* Mobile Menu Button */}
             <button
               type="button"
@@ -52,7 +52,7 @@ const Navbar = ({ onMenuClick }) => {
             </button>
 
             {/* Search Bar */}
-            <div className="navbar__search flex-1 max-w-sm lg:max-w-lg mx-4 lg:mx-8 ">
+            <div className="navbar__search flex-1 max-w-sm lg:max-w-lg">
               <button
                 onClick={handleSearchClick}
                 className="navbar__search-btn group w-full flex items-center pl-2 pr-1 py-1 text-left rounded-xl border transition-all duration-300 ease-out hover:shadow-lg hover:shadow-blue-500/10 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:ring-offset-2 active:scale-[0.99] cursor-pointer"

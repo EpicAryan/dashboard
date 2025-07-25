@@ -2,5 +2,6 @@
 
 @import './styles/components/navbar.css';
 @import './styles/components/sidebar.css';
-@import './styles/components/closeModal.css';
-@import './styles/animations/modal-animations.css'
+@import './styles/components/close-modal.css';
+@import './styles/animations/modal-animations.css';
+@import './styles/components/summary-cards.css'

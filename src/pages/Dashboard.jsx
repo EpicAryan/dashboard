@@ -1,42 +1,84 @@
 import React from 'react'
+import { DollarSign, Users, ShoppingCart, TrendingUp } from 'lucide-react'
+import DashboardHeader from '../components/dashboard/DashboardHeader'
+import SummaryCard from '../components/dashboard/SummaryCard'
 
 const Dashboard = () => {
+
+  const summaryData = [
+    {
+      title: 'Total Revenue',
+      value: 45231,
+      change: 12.5,
+      changeType: 'positive',
+      icon: DollarSign,
+      format: 'currency'
+    },
+    {
+      title: 'Total Users',
+      value: 8549,
+      change: 8.2,
+      changeType: 'positive',
+      icon: Users,
+      format: 'number'
+    },
+    {
+      title: 'Total Sales',
+      value: 1247,
+      change: -3.1,
+      changeType: 'negative',
+      icon: ShoppingCart,
+      format: 'number'
+    },
+    {
+      title: 'Conversion Rate',
+      value: 12.8,
+      change: 2.4,
+      changeType: 'positive',
+      icon: TrendingUp,
+      format: 'percentage'
+    }
+  ]
+
   return (
-    <div className="space-y-6">
-      <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
-        Dashboard
-      </h1>
+    <div className="py-4">
+      {/* Dashboard Header */}
+      <DashboardHeader />
       
-      {/* Grid for dashboard components */}
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
-        {/* Stat cards will go here */}
-        <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow">
-          <p>Stat Card 1 placeholder</p>
-        </div>
-        <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow">
-          <p>Stat Card 2 placeholder</p>
-        </div>
-        <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow">
-          <p>Stat Card 3 placeholder</p>
-        </div>
-        <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow">
-          <p>Stat Card 4 placeholder</p>
+      {/* Summary Cards Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 mb-8">
+        {summaryData.map((card, index) => (
+          <SummaryCard
+            key={index}
+            title={card.title}
+            value={card.value}
+            change={card.change}
+            changeType={card.changeType}
+            icon={card.icon}
+            format={card.format}
+          />
+        ))}
+      </div>
+      
+      {/* Chart area placeholder */}
+      <div className="dashboard-section">
+        <h2 className="dashboard-section__title">Revenue Overview</h2>
+        <div className="dashboard-section__content">
+          <div className="dashboard-placeholder">
+            <TrendingUp className="h-12 w-12 text-gray-400" />
+            <p className="text-gray-500">Chart component will go here</p>
+          </div>
         </div>
       </div>
       
-      {/* Chart area */}
-      <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow">
-        <h2 className="text-xl font-semibold mb-4">Chart Placeholder</h2>
-        <div className="h-64 bg-gray-100 dark:bg-gray-700 rounded flex items-center justify-center">
-          Chart will go here
-        </div>
-      </div>
-      
-      {/* Table area */}
-      <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow">
-        <h2 className="text-xl font-semibold mb-4">Data Table</h2>
-        <div className="h-32 bg-gray-100 dark:bg-gray-700 rounded flex items-center justify-center">
-          Table will go here
+      {/* Table area placeholder */}
+      <div className="dashboard-section">
+        <h2 className="dashboard-section__title">Recent Transactions</h2>
+        <div className="dashboard-section__content">
+          <div className="dashboard-placeholder">
+            <ShoppingCart className="h-12 w-12 text-gray-400" />
+            <p className="text-gray-500">Data table will go here</p>
+          </div>
         </div>
       </div>
     </div>
