@@ -246,7 +246,7 @@ const SearchDialog = ({ isOpen, onClose }) => {
               </div>
               <div className="flex items-center space-x-1.5 search-dialog__footer-text">
                 <span>Powered by</span>
-                <span className="search-dialog__brand font-semibold">Nexus</span>
+                <span className="search-dialog__brand font-semibold">Perccent</span>
               </div>
             </div>
           </div>

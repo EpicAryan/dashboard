@@ -37,20 +37,34 @@
 
 /* Dark theme variables */
 [data-theme="dark"] {
-  --bg-primary: #0f172a;
-  --bg-secondary: #1e293b;
-  --bg-tertiary: #334155;
-  --text-primary: #f8fafc;
-  --text-secondary: #cbd5e1;
-  --text-muted: #94a3b8;
-  --border-color: #334155;
-  --shadow-color: rgba(0, 0, 0, 0.3);
-  
+  --sidebar-width: 16rem;
+  --navbar-height: 4rem;
+  --border-radius: 0.5rem;
+
+  /* Dark theme colors */
+  --bg-primary: #111827;      
+  --bg-secondary: #1f2937;    
+  --bg-tertiary: #374151;     
+  --text-primary: #f9fafb;     
+  --text-secondary: #d1d5db;  
+  --text-muted: #9ca3af;       
+  --border-color: #374151;     
+  --shadow-color: rgba(0, 0, 0, 0.4);
+
+  /* Brand colors */
+  --primary: #3b82f6;         
+  --primary-hover: #2563eb;     
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --info: #06b6d4;
+
+  /* Sidebar */
   --sidebar-bg: var(--bg-primary);
   --sidebar-border: var(--border-color);
-  --nav-item-hover: #334155;
+  --nav-item-hover: var(--bg-secondary); 
   --nav-item-active: var(--primary);
-  --nav-text: var(--text-primary);
+  --nav-text: var(--text-secondary); 
   --nav-text-active: #ffffff;
 }
 
@@ -71,6 +85,7 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+
 * {
   box-sizing: border-box;
 }
@@ -87,13 +102,15 @@ body {
   transition: background-color 0.3s ease;
 }
 
-.custom-scrollbar {
-  scrollbar-width: none; 
-  -ms-overflow-style: none; 
+html, body {
+  scrollbar-width: none;        
+  -ms-overflow-style: none;     
+  overflow: auto;
 }
 
-.custom-scrollbar::-webkit-scrollbar {
-  display: none; 
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
 }
 
 .skip-link {

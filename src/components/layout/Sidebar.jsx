@@ -139,13 +139,15 @@ const Sidebar = ({ isOpen = true, onClose, currentPage, setCurrentPage }) => {
 
       <aside
         ref={sidebarRef}
-        className={`sidebar sidebar__container fixed inset-y-0 left-0 z-50 flex h-full w-[256px] flex-col border-r bg-white ${
-          isOpen ? 'translate-x-0' : '-translate-x-full'
-        } lg:translate-x-0`}
+        className={`sidebar fixed inset-y-0 left-0 z-50 flex h-full w-[256px] flex-col border-r bg-white
+                    transform transition-transform duration-600 ease-[cubic-bezier(0.25,0.1,0.25,1)]
+                    ${isOpen ? 'translate-x-0' : '-translate-x-full'}
+                    lg:translate-x-0`}
         role="navigation"
         aria-label="Main navigation"
         aria-hidden={!isOpen}
       >
+
         {/* Header */}
         <div className="sidebar__header flex h-16 shrink-0 items-center justify-between px-4 border-b">
           <div className="flex items-center gap-2">
@@ -154,7 +156,7 @@ const Sidebar = ({ isOpen = true, onClose, currentPage, setCurrentPage }) => {
               alt='Nexus logo'
               className='size-6'
             />
-            <span className="sidebar__brand text-xl font-bold">Nexus</span>
+            <span className="sidebar__brand text-xl font-bold">Perccent</span>
           </div>
           <button
             onClick={onClose}
@@ -227,7 +229,7 @@ const Sidebar = ({ isOpen = true, onClose, currentPage, setCurrentPage }) => {
             Upgrade Plan
           </button>
           <p className="sidebar__copyright mt-4 text-center text-xs">
-            © 2025 Nexus.io, Inc.
+            © 2025 Perccent.io, Inc.
           </p>
         </div>
       </aside>
