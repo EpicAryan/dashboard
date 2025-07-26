@@ -63,7 +63,7 @@ const Navbar = ({ onMenuClick }) => {
             </button>
 
             {/* Search Bar */}
-            <div className="navbar__search flex-1 max-w-sm xl:max-w-lg">
+            <div className="navbar__search flex-1 max-w-sm md:max-w-xs lg:max-w-sm xl:max-w-lg">
               <button
                 onClick={handleSearchClick}
                 className="navbar__search-btn group w-full flex items-center pl-2 pr-1 py-1 text-left rounded-xl border transition-all duration-300 ease-out hover:shadow-lg hover:shadow-blue-500/10 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:ring-offset-2 active:scale-[0.99] cursor-pointer"
