@@ -42,7 +42,6 @@
     overflow-x: auto;
     overflow-y: hidden;
     height: 350px;
-    /* Custom scrollbar styling */
     scrollbar-width: thin;
     scrollbar-color: var(--border-color) transparent;
   }

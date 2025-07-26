@@ -37,13 +37,21 @@ const PortfolioChart = () => {
               contentStyle={{ 
                 backgroundColor: 'var(--bg-primary)', 
                 border: '1px solid var(--border-color)',
-                borderRadius: '8px'
+                borderRadius: '8px',
+                color: 'var(--text-primary)',
+                boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
+              }}
+              itemStyle={{
+                color: 'var(--text-primary)'
               }}
             />
             <Legend 
               verticalAlign="bottom" 
               height={80} 
               formatter={(value) => value}
+              wrapperStyle={{
+                color: 'var(--text-secondary)'
+              }}
             />
           </PieChart>
         </ResponsiveContainer>
