@@ -9,10 +9,10 @@ const DashboardHeader = () => {
         {/* Title Section */}
         <div className="flex-1">
           <h1 className="dashboard-header__title text-3xl sm:text-2xl font-bold mb-2 leading-tight">
-            Dashboard
+            Welcome back Aryan
           </h1>
           <p className="dashboard-header__subtitle text-base sm:text-sm leading-relaxed">
-            Welcome back! Here&apos;s a snapshot of your financial performance today
+            Here's a snapshot of your financial performance today.
           </p>
         </div>
         

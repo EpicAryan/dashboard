@@ -4,11 +4,12 @@ import { useState, useEffect } from 'react'
 import { Menu, Search, Bell, Command } from 'lucide-react'
 import SearchDialog from '../ui/SearchDialog'
 import ThemeToggle from '../ui/ThemeToggle'
+import ProfileModal from '../ui/ProfileModal'
 
 const Navbar = ({ onMenuClick }) => {
   const [isMenuPressed, setIsMenuPressed] = useState(false)
   const [isSearchOpen, setIsSearchOpen] = useState(false)
-
+  const [isProfileOpen, setIsProfileOpen] = useState(false)
   
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -36,16 +37,24 @@ const Navbar = ({ onMenuClick }) => {
     setIsSearchOpen(false)
   }
 
+  const handleProfileClick = () => {
+    setIsProfileOpen(true)
+  }
+
+  const handleProfileClose = () => {
+    setIsProfileOpen(false)
+  }
+
   return (
     <>
       <header className="navbar fixed top-0 right-0 left-0 lg:left-64 z-30 border-b backdrop-blur-md">
-        <div className='container mx-auto px-2 md:px-4 lg:px-6'>
+        <div className='container mx-auto px-4 md:px-7 lg:px-10'>
           <div className="bg-transparent h-16 flex items-center justify-between">
             {/* Mobile Menu Button */}
             <button
               type="button"
               onClick={handleMenuClick}
-              className={`navbar__menu-btn lg:hidden p-2.5 rounded-xl transition-all duration-300 ease-out focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:ring-offset-1 hover:scale-105 active:scale-95 ${
+              className={`navbar__menu-btn lg:hidden py-2.5 rounded-xl transition-all duration-300 ease-out focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:ring-offset-1 hover:scale-105 active:scale-95 ${
                 isMenuPressed ? 'hamburger-icon--rotating' : ''
               }`}
               aria-label="Open navigation menu"
@@ -54,7 +63,7 @@ const Navbar = ({ onMenuClick }) => {
             </button>
 
             {/* Search Bar */}
-            <div className="navbar__search flex-1 max-w-sm lg:max-w-lg">
+            <div className="navbar__search flex-1 max-w-sm xl:max-w-lg">
               <button
                 onClick={handleSearchClick}
                 className="navbar__search-btn group w-full flex items-center pl-2 pr-1 py-1 text-left rounded-xl border transition-all duration-300 ease-out hover:shadow-lg hover:shadow-blue-500/10 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:ring-offset-2 active:scale-[0.99] cursor-pointer"
@@ -86,20 +95,21 @@ const Navbar = ({ onMenuClick }) => {
               </div>
               {/* Notification Bell */}
               <button 
-                className="navbar__notification-btn group relative p-2.5 rounded-xl transition-all duration-300 ease-out hover:scale-105 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:ring-offset-1 active:scale-95 cursor-pointer"
+                className="navbar__notification-btn group relative p-2.5 sm:mr-6 rounded-xl transition-all duration-300 ease-out hover:scale-105 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:ring-offset-1 active:scale-95 cursor-pointer"
                 aria-label="View notifications"
               >
-                <Bell className="size-4 sm:size-5 transition-transform duration-200 group-hover:rotate-12" />
+                <Bell className="size-5 sm:size-6 transition-transform duration-200 group-hover:rotate-12" />
                 <span className="navbar__notification-dot absolute -top-0.5 -right-0.5 h-4 w-4 bg-red-500 rounded-full flex items-center justify-center shadow-lg">
-                  <span className="text-[10px] sm:text-xs font-bold text-white">3</span>
+                  <span className="text-[10px] sm:text-[11px] font-bold text-white">3</span>
                 </span>
               </button>
 
               {/* User Avatar */}
               <div className="navbar__avatar-container">
                 <button 
+                  onClick={handleProfileClick}
                   className="navbar__avatar-btn group flex items-center md:space-x-3 p-1.5 rounded-xl transition-all duration-300 ease-out hover:shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:ring-offset-1 active:scale-95 cursor-pointer"
-                  aria-label="User menu"
+                  aria-label="Open profile settings"
                 >
                   <div className="relative">
                     <img
@@ -111,10 +121,10 @@ const Navbar = ({ onMenuClick }) => {
                   </div>
                   <div className="hidden md:block text-left">
                     <div className="navbar__user-name text-xs lg:text-sm font-semibold transition-colors duration-200">
-                      John Doe
+                      Aryan
                     </div>
                     <div className="navbar__user-email text-xs transition-colors duration-200">
-                      john@nexus.io
+                      aryan@perccent.io
                     </div>
                   </div>
                 </button>
@@ -126,6 +136,7 @@ const Navbar = ({ onMenuClick }) => {
 
       {/* Search Dialog */}
       <SearchDialog isOpen={isSearchOpen} onClose={handleSearchClose} />
+      <ProfileModal isOpen={isProfileOpen} onClose={handleProfileClose} />
     </>
   )
 }

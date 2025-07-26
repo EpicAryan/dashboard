@@ -85,7 +85,7 @@ const SummaryCard = ({
       </div>
 
       {/* Hover Overlay */}
-      <div className="summary-card__overlay absolute inset-0 z-0 opacity-0 group-hover:opacity-5 transition-opacity duration-300 pointer-events-none" />
+      <div className="summary-card__overlay absolute inset-0 z-0 opacity-0 group-hover:opacity-30 transition-opacity duration-300 pointer-events-none" />
     </div>
   )
 }

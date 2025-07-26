@@ -33,6 +33,11 @@
   --nav-item-active: var(--primary);
   --nav-text: var(--text-primary);
   --nav-text-active: #ffffff;
+
+  /* Profile */
+  --profile-success: #10b981;
+  --profile-warning: #f59e0b;
+  --profile-info: #06b6d4;
 }
 
 /* Dark theme variables */
@@ -66,6 +71,11 @@
   --nav-item-active: var(--primary);
   --nav-text: var(--text-secondary); 
   --nav-text-active: #ffffff;
+
+  /* Profile */
+  --profile-success: #34d399;
+  --profile-warning: #fbbf24;
+  --profile-info: #22d3ee;
 }
 
 
@@ -132,7 +142,7 @@ body::-webkit-scrollbar {
 
 /* Theme Toggle Styles */
 .theme-toggle-container {
-  padding: 0.75rem 1rem;
+  padding: 0.75rem ;
 }
 
 .theme-toggle-wrapper {

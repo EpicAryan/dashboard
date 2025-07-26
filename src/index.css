@@ -5,5 +5,6 @@
 @import './styles/components/close-modal.css';
 @import './styles/components/summary-cards.css';
 @import './styles/components/data-table.css';
+@import './styles/components/profile-modal.css';
 
 @import './styles/animations/modal-animations.css';
