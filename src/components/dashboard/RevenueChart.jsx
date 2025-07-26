@@ -15,7 +15,7 @@ const RevenueChart = () => {
     <div className="dashboard-section">
       <h2 className="dashboard-section__title">Revenue Overview</h2>
       
-      {/* Scrollable container for smaller screens */}
+      {/* Scrollable container */}
       <div className="chart-scroll-container">
         <div className="chart-content">
           <ResponsiveContainer width="100%" height={300}>
