@@ -3,8 +3,10 @@
 
 A modern, responsive financial dashboard built with **React** and **Tailwind CSS**. This project demonstrates **pixel-perfect responsive design**, **accessibility best practices**, and **clean code architecture**.
 
-![Dashboard Preview]([https://via.placeholder.com/800x400/2563eb/ffffff?text=Dashboard+Preview](https://ik.imagekit.io/qt3qsu85k/Screenshot%202025-07-26%20172752.png))
-![Dashboard Preview]([https://via.placeholder.com/800x400/2563eb/ffffff?text=Dashboard+Preview](https://ik.imagekit.io/qt3qsu85k/Screenshot%202025-07-26%20172811.png))
+![Dashboard Preview](https://ik.imagekit.io/qt3qsu85k/Screenshot%202025-07-26%20172752.png)
+
+
+![Dashboard Preview](https://ik.imagekit.io/qt3qsu85k/Screenshot%202025-07-26%20172811.png)
 ---
 
 ##  Features
