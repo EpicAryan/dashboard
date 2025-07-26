@@ -7,39 +7,18 @@ const Dropdown = ({
   children, 
   className = '',
   dropdownClassName = '',
-  position = 'right',
+  position = 'center',
   isOpen: controlledIsOpen,
   onToggle,
   closeOnSelect = true 
 }) => {
   const [internalIsOpen, setInternalIsOpen] = useState(false)
-  const [actualPosition, setActualPosition] = useState(position)
   const dropdownRef = useRef(null)
   const containerRef = useRef(null)
   const triggerRef = useRef(null)
   
   const isOpen = controlledIsOpen !== undefined ? controlledIsOpen : internalIsOpen
   const toggleDropdown = onToggle || (() => setInternalIsOpen(!internalIsOpen))
-
-  useEffect(() => {
-    if (isOpen && containerRef.current) {
-      const rect = containerRef.current.getBoundingClientRect()
-      const viewportWidth = window.innerWidth
-      const dropdownWidth = 240
-
-      if (viewportWidth < 640) {
-        setActualPosition('center')
-      } else {
-        if (rect.right < dropdownWidth) {
-          setActualPosition('left')
-        } else if (rect.left > viewportWidth - dropdownWidth) {
-          setActualPosition('right')
-        } else {
-          setActualPosition(position)
-        }
-      }
-    }
-  }, [isOpen, position])
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -104,7 +83,7 @@ const Dropdown = ({
             backdrop-blur-sm
             transition-all duration-200 ease-out
             animate-in slide-in-from-top-2 fade-in-0
-            ${positionClasses[actualPosition]}
+            ${positionClasses[position]}
             ${dropdownClassName}
           `}
           role="dialog"

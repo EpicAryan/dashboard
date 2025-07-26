@@ -57,7 +57,7 @@ const DashboardHeader = () => {
             isOpen={filterOpen}
             onToggle={setFilterOpen} 
             dropdownClassName="w-full sm:w-52"
-            position="right"
+            position="center"
             closeOnSelect={false}
             trigger={
               <button 
