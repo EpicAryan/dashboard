@@ -1,17 +1,16 @@
 //src/components/ui/SearchDialog.jsx
 
-import { useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { Search, Clock, TrendingUp, ArrowRight, Command } from 'lucide-react'
 import { useCSSOnlyModal } from '../../hooks/useCSSOnlyModal'
 import CSSCloseButton from './CSSCloseButton'
 
-const SearchDialog = ({ isOpen, onClose }) => {
+const SearchDialog = ({ isOpen, onClose, modalRef  }) => {
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedIndex, setSelectedIndex] = useState(0)
   const [isAnimating, setIsAnimating] = useState(false)
   const [isExiting, setIsExiting] = useState(false)
   const searchInputRef = useRef(null)
-  const dialogRef = useRef(null)
   const modalId = 'search-dialog'
 
   const { checkboxId, handleClose: originalHandleClose } = useCSSOnlyModal(modalId, isOpen, onClose)
@@ -31,14 +30,14 @@ const SearchDialog = ({ isOpen, onClose }) => {
 
   const allItems = searchQuery ? suggestions : recentSearches.map(item => ({ title: item, isRecent: true }))
 
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     setIsExiting(true)
     
     setTimeout(() => {
       setIsExiting(false)
       originalHandleClose()
     }, 200) 
-  }
+  }, [originalHandleClose])
 
   useEffect(() => {
     if (isOpen) {
@@ -94,7 +93,7 @@ const SearchDialog = ({ isOpen, onClose }) => {
       document.addEventListener('keydown', handleKeyDown)
       return () => document.removeEventListener('keydown', handleKeyDown)
     }
-  }, [isOpen, selectedIndex, allItems, isExiting])
+  }, [isOpen, selectedIndex, allItems, isExiting, handleClose])
 
   const handleBackdropClick = (e) => {
     if (e.target === e.currentTarget && !isExiting) {
@@ -125,7 +124,7 @@ const SearchDialog = ({ isOpen, onClose }) => {
         onClick={handleBackdropClick}
       >
         <div
-          ref={dialogRef}
+          ref={modalRef}
           className={`search-dialog w-full max-w-2xl rounded-2xl border shadow-2xl ${
             isAnimating && !isExiting 
               ? 'modal-enter' 

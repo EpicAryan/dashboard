@@ -6,7 +6,7 @@ import { useCSSOnlyModal } from '../../hooks/useCSSOnlyModal'
 import ProfileSidebar from '../profile/ProfileSidebar'
 import ProfileContent from '../profile/ProfileContent'
 
-const ProfileModal = ({ isOpen, onClose }) => {
+const ProfileModal = ({ isOpen, onClose, modalRef }) => {
   const [isEditing, setIsEditing] = useState(false)
   const [isAnimating, setIsAnimating] = useState(false)
   const [isExiting, setIsExiting] = useState(false)
@@ -76,6 +76,7 @@ const ProfileModal = ({ isOpen, onClose }) => {
         onClick={(e) => e.target === e.currentTarget && !isExiting && handleClose()}
       >
         <div
+          ref={modalRef} 
           className={`profile-modal-container w-full max-w-4xl h-auto max-h-[90vh] flex flex-col md:flex-row rounded-2xl shadow-2xl overflow-hidden transition-all duration-300 ease-in-out ${
             isAnimating && !isExiting ? 'modal-enter' : isExiting ? 'modal-exit' : 'opacity-0 scale-90'
           }`}
