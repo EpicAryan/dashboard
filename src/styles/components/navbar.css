@@ -1,7 +1,5 @@
 /* /src/styles/components/navbar.css */
 
-/* Navbar Component Classes */
-
 .navbar {
   background-color: var(--bg-primary);
   border-color: var(--border-color);
@@ -12,7 +10,7 @@
 
 .navbar__menu-btn {
   color: var(--text-secondary);
-  background-color: transparent;
+  /* background-color: transparent; */
 }
 
 .navbar__menu-btn:hover {
