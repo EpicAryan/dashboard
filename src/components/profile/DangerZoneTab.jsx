@@ -17,7 +17,7 @@ const DangerZoneTab = () => {
               <h4 className="danger-zone-action-title font-semibold">Delete Account</h4>
               <p className="danger-zone-action-description text-sm">Permanently remove all your data and close your account.</p>
             </div>
-            <button className="profile-btn profile-btn--danger group inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg hover:bg-red-200 transition-all cursor-pointer">
+            <button className="profile-btn profile-btn--danger group inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium rounded-lg hover:bg-red-200 transition-all cursor-pointer">
               <Trash2 className="h-4 w-4" />
               <span className="leading-none">Delete My Account</span>
             </button>

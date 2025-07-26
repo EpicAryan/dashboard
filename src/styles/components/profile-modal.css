@@ -290,7 +290,7 @@
 @media (max-width: 640px) {
   .profile-modal-container {
     margin: 0.5rem;
-    max-height: calc(100vh - 1rem);
+    max-height: calc(100vh - 8rem);
   }
   
   .danger-zone-section .flex {

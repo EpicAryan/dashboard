@@ -160,7 +160,7 @@ const Sidebar = ({ isOpen = true, onClose, currentPage, setCurrentPage }) => {
           </div>
           <button
             onClick={onClose}
-            className="lg:hidden p-1 rounded-md hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="lg:hidden p-1 rounded-md  transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500"
             aria-label="Close navigation menu"
             tabIndex={0}
           >
