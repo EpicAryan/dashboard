@@ -1,13 +1,14 @@
-//src/pages/Dashboard.jsx
+// src/pages/Dashboard.jsx
 
 import { DollarSign, Users, ShoppingCart, TrendingUp } from 'lucide-react'
 import DashboardHeader from '../components/dashboard/DashboardHeader'
 import SummaryCard from '../components/dashboard/SummaryCard'
 import DataTable from '../components/dashboard/DataTable'
+import RevenueChart from '../components/dashboard/RevenueChart'
+import PortfolioChart from '../components/dashboard/PortfolioChart'
 import { sampleTransactions } from '../data/sampleTransactions'
 
 const Dashboard = () => {
-
   const summaryData = [
     {
       title: 'Total Revenue',
@@ -63,19 +64,19 @@ const Dashboard = () => {
         ))}
       </div>
       
-      {/* Chart area placeholder */}
-      <div className="dashboard-section">
-        <h2 className="dashboard-section__title">Revenue Overview</h2>
-        <div className="dashboard-section__content">
-          <div className="dashboard-placeholder">
-            <TrendingUp className="h-12 w-12 text-gray-400" />
-            <p className="text-gray-500">Chart component will go here</p>
-          </div>
+      {/* Charts Section */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+        <div className="lg:col-span-2">
+          <RevenueChart />
+        </div>
+        
+        <div className="lg:col-span-1">
+          <PortfolioChart />
         </div>
       </div>
       
-      {/* Table area placeholder */}
-       <DataTable 
+      {/* Table area */}
+      <DataTable 
         title="Recent Transactions"
         data={sampleTransactions}
         showPagination={true}
