@@ -16,6 +16,7 @@ const Dropdown = ({
   const [actualPosition, setActualPosition] = useState(position)
   const dropdownRef = useRef(null)
   const containerRef = useRef(null)
+  const triggerRef = useRef(null)
   
   const isOpen = controlledIsOpen !== undefined ? controlledIsOpen : internalIsOpen
   const toggleDropdown = onToggle || (() => setInternalIsOpen(!internalIsOpen))
@@ -24,7 +25,7 @@ const Dropdown = ({
     if (isOpen && containerRef.current) {
       const rect = containerRef.current.getBoundingClientRect()
       const viewportWidth = window.innerWidth
-      const dropdownWidth = 240 
+      const dropdownWidth = 240
 
       if (viewportWidth < 640) {
         setActualPosition('center')
@@ -42,7 +43,10 @@ const Dropdown = ({
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      const isClickOutsideDropdown = dropdownRef.current && !dropdownRef.current.contains(event.target)
+      const isClickOutsideTrigger = triggerRef.current && !triggerRef.current.contains(event.target)
+      
+      if (isClickOutsideDropdown && isClickOutsideTrigger) {
         if (onToggle) {
           onToggle(false)
         } else {
@@ -51,22 +55,42 @@ const Dropdown = ({
       }
     }
 
-    if (isOpen) {
-      document.addEventListener('mousedown', handleClickOutside)
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape' && isOpen) {
+        event.preventDefault()
+        if (onToggle) {
+          onToggle(false)
+        } else {
+          setInternalIsOpen(false)
+        }
+
+        triggerRef.current?.focus()
+      }
     }
 
-    return () => document.removeEventListener('mousedown', handleClickOutside)
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside)
+      document.addEventListener('keydown', handleKeyDown)
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+      document.removeEventListener('keydown', handleKeyDown)
+    }
   }, [isOpen, onToggle])
 
   const positionClasses = {
     right: 'right-0 sm:right-0',
     left: 'left-0 sm:left-0', 
-    center: 'left-1/2 -translate-x-1/2'
+    center: '-left-1/3 md:left-1/2 -translate-x-1/2'
   }
 
   return (
     <div className={`relative ${className}`} ref={containerRef}>
-      <div onClick={() => toggleDropdown(!isOpen)}>
+      <div 
+        ref={triggerRef}
+        onClick={() => toggleDropdown(!isOpen)}
+      >
         {trigger}
       </div>
       
@@ -83,6 +107,8 @@ const Dropdown = ({
             ${positionClasses[actualPosition]}
             ${dropdownClassName}
           `}
+          role="dialog"
+          aria-modal="false"
         >
           <div onClick={closeOnSelect ? () => toggleDropdown(false) : undefined}>
             {children}
@@ -93,35 +119,46 @@ const Dropdown = ({
   )
 }
 
+
 export const DropdownHeader = ({ children, className = '' }) => (
-  <div className={`px-3 sm:px-4 py-2.5 sm:py-3 border-b font-medium text-xs sm:text-sm ${className}`}>
+  <div className={`px-3 sm:px-4 py-2.5 sm:py-3 border-b font-medium text-xs sm:text-sm ${className}`} role="banner">
     {children}
   </div>
 )
 
-export const DropdownContent = ({ children, className = '', maxHeight = 'max-h-48 sm:max-h-48' }) => (
-  <div className={`py-1 sm:py-2 overflow-y-auto scrollbar-hide ${maxHeight} ${className}`}>
+export const DropdownContent = ({ children, className = '', maxHeight = 'max-h-48 sm:max-h-48', ...props }) => (
+  <div 
+    className={`py-1 sm:py-2 overflow-y-auto scrollbar-hide ${maxHeight} ${className}`}
+    {...props}
+  >
     {children}
   </div>
 )
 
-export const DropdownItem = ({ children, onClick, isSelected = false, className = '' }) => (
+export const DropdownItem = ({ children, onClick, isSelected = false, className = '', ...props }) => (
   <button
     onClick={onClick}
     className={`
       w-full text-left px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-normal
       transition-all duration-150 ease-out
       hover:bg-gray-50 dark:hover:bg-gray-700/50
+      focus:bg-gray-50 dark:focus:bg-gray-700/50 focus:outline-none
       ${isSelected ? 'dropdown-item--selected font-medium' : ''}
       ${className}
     `}
+    role="menuitem"
+    tabIndex={0}
+    {...props}
   >
     {children}
   </button>
 )
 
-export const DropdownFooter = ({ children, className = '' }) => (
-  <div className={`px-3 sm:px-4 py-2 sm:py-3 border-t bg-gray-50/50 dark:bg-gray-800/50 ${className}`}>
+export const DropdownFooter = ({ children, className = '', ...props }) => (
+  <div 
+    className={`px-3 sm:px-4 py-2 sm:py-3 border-t bg-gray-50/50 dark:bg-gray-800/50 ${className}`}
+    {...props}
+  >
     {children}
   </div>
 )
